@@ -1,0 +1,59 @@
+import java.util.*;
+public class Task2 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan=new Scanner(System.in);
+		
+		System.out.println("Please enter the number of subjects:");
+		int n=scan.nextInt();
+		int TotalGrades=0;
+		int grades;
+		try
+		{
+			if (n <= 0) {
+                throw new IllegalArgumentException("Number of subjects must be greater than zero.");
+            }
+			for(int i=0;i<n;i++)
+			{
+				System.out.printf("Subject %d:",i+1);
+				grades=scan.nextInt();
+				if(grades<0||grades>100)
+					throw new IllegalArgumentException("Marks must be between 0 and 100.");
+				TotalGrades+=grades;
+				
+			}
+			
+		
+		
+		double averagePercentage= (double)TotalGrades/n;
+		char LetterGrade=' ';
+		if(averagePercentage>=90)
+			LetterGrade='A';
+		else
+			if(averagePercentage<90 && averagePercentage>=80)
+				LetterGrade='B';
+			else
+				if(averagePercentage<80 && averagePercentage>=70)
+					LetterGrade='C';
+				else
+					if(averagePercentage<70 && averagePercentage>=60)
+						LetterGrade='D';
+					else
+						LetterGrade='F';
+			
+		
+		System.out.println("The Results are below:\n");
+        System.out.println("Total Marks: " + TotalGrades);
+        System.out.printf("Average Percentage: %.2f%%\n", averagePercentage);
+        System.out.println("LetterGrade: " + LetterGrade);
+		}
+        catch (Exception e) 
+		{
+            System.out.println("Error: " + e.getMessage());
+        }
+		
+		
+	
+
+	}}
